@@ -708,6 +708,7 @@ function installSkill() {
 }
 
 const HELP = `  cmac                     the full-screen view: a map of disk, memory, CPU and GPU use
+      --demo               the same view on invented data; nothing is read or removed
   cmac scan                list what can be removed, with sizes
       --open               also open a report page in the browser
       --json               print the list as JSON (no title, for scripts and agents)
@@ -743,9 +744,9 @@ async function main() {
   if (cmd === 'install-skill') return installSkill();
   if (cmd === 'stats') return statsCommand(argv);
   if (cmd === 'undo') return undo();
-  if (cmd === 'ui' || (!given && !argv.length && TTY && process.stdin.isTTY)) {
+  if (cmd === 'ui' || (!given && (!argv.length || flag('--demo')) && TTY && process.stdin.isTTY)) {
     const { tui } = await import('./tui.js');
-    return tui({ HOME, HOLD, home, fmt, run, runSync, has, children, scan, review, reviewer, apply, undoLatest, batches, stats, title: FONT });
+    return tui({ HOME, HOLD, home, fmt, run, runSync, has, children, scan, review, reviewer, apply, undoLatest, batches, stats, title: FONT, demo: flag('--demo') });
   }
   if (cmd === 'purge') return purge(flag('--yes'));
   if (cmd === 'integration') return integration(argv[0]);
