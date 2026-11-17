@@ -1,0 +1,37 @@
+{
+  "name": "cleaner-mac",
+  "version": "0.1.0",
+  "description": "Minimal macOS cleanup and stats in the terminal: reversible removal, a model review before you agree, one-line stats for zsh, tmux, Neovim and herdr.",
+  "type": "module",
+  "bin": {
+    "cmac": "bin/cmac.js"
+  },
+  "files": [
+    "bin",
+    "integrations",
+    "skill",
+    "README.md",
+    "LICENSE"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "engines": {
+    "node": ">=18.15"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luodian/cleaner-mac.git"
+  },
+  "keywords": [
+    "macos",
+    "cleanup",
+    "disk",
+    "stats",
+    "cli",
+    "claude",
+    "codex"
+  ],
+  "author": "Bo Li"
+}
